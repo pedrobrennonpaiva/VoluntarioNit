@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoluntarAe.API", "VoluntarAe\VoluntarAe.API.csproj", "{1BC9F94F-0FD1-4C04-8349-CCD9B7FAC724}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoluntarAe.Web", "VoluntarAe.Web\VoluntarAe.Web.csproj", "{9A39577D-BF34-431A-A03E-C427EEAAC327}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1BC9F94F-0FD1-4C04-8349-CCD9B7FAC724}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BC9F94F-0FD1-4C04-8349-CCD9B7FAC724}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BC9F94F-0FD1-4C04-8349-CCD9B7FAC724}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A39577D-BF34-431A-A03E-C427EEAAC327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A39577D-BF34-431A-A03E-C427EEAAC327}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A39577D-BF34-431A-A03E-C427EEAAC327}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A39577D-BF34-431A-A03E-C427EEAAC327}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
