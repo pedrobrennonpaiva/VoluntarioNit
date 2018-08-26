@@ -9,9 +9,9 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-expand-sm bg-success navbar-dark">
         <div class="container">
-            <div class="navbar-header">
+            <div class="navbar-collapse">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -20,13 +20,14 @@
                 @Html.ActionLink("VolutarAê", "Home", "Web", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Sobre", "Sobre", "Web")</li>
-                    <li>@Html.ActionLink("Volutáriados", "Voluntariados", "Web")</li>
-                    <li>@Html.ActionLink("Departamentos", "Departamento", "Web")</li>
-                    <li>@Html.ActionLink("Ação volutária", "Voluntario", "Web")</li>
-                    <li>@Html.ActionLink("Parceiros", "Parceiros", "Web")</li>
-                    <li>@Html.ActionLink("Contatos", "Contatos", "Web")</li>
+                <ul class="navbar-collapse">
+                    <li class="nav-item">@Html.ActionLink("Sobre", "Sobre", "Web", new { @Class = "" })</li>
+                    <li class="nav-item">@Html.ActionLink("Volutáriados", "Voluntariados", "Web", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li class="nav-item">@Html.ActionLink("Departamentos", "Departamento", "Web", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li class="nav-item">@Html.ActionLink("Ação volutária", "Voluntario", "Web", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li class="nav-item">@Html.ActionLink("Parceiros", "Parceiros", "Web", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li class="nav-item">@Html.ActionLink("Inscrição", "Index", "Api", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li class="nav-item">@Html.ActionLink("Contatos", "Contatos", "Web", new { area = "" }, new { @class = "navbar-brand" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
