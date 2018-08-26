@@ -9,7 +9,5 @@ namespace WebApplication.API.Models
     {
         public int id { get; set; }
         public String title { get; set; }
-
-
     }
 }

@@ -1,0 +1,99 @@
+﻿@model IEnumerable<VoluntarAe.Web.Models.DetailsBindingViewModels>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hour)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.place)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tags)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.youtube)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.organizer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.categoryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.categoryName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.subTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.image)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hour)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.place)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tags)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.youtube)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.organizer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.categoryId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.categoryName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
