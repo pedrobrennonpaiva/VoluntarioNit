@@ -19,8 +19,7 @@ namespace VoluntarAe.Controllers
         {
             connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         }
-
-        // GET: api/Feed
+        
         public IEnumerable<DetailsModel> Get()
         {
             var list = new List<DetailsModel>();
@@ -76,10 +75,11 @@ namespace VoluntarAe.Controllers
 
             using (var connection = new SqlConnection(connectionString))
             {
-                var procedureName = "readDetails";
+                var procedureName = "readDetail";
                 var command = new SqlCommand(procedureName, connection);
 
                 command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@id", id);
 
                 try
                 {
@@ -124,19 +124,19 @@ namespace VoluntarAe.Controllers
             {
                 var commandText = "addDetails";
                 var command = new SqlCommand(commandText, connection);
-
+                
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@title", model.title);
-                command.Parameters.AddWithValue("@image", model.image);
-                command.Parameters.AddWithValue("@subTitle", model.subTitle);
-                command.Parameters.AddWithValue("@date", model.date);
-                command.Parameters.AddWithValue("@hour", model.hour);
-                command.Parameters.AddWithValue("@place", model.place);
-                command.Parameters.AddWithValue("@description", model.description);
-                command.Parameters.AddWithValue("@tags", model.tags);
-                command.Parameters.AddWithValue("@youtube", model.youtube);
-                command.Parameters.AddWithValue("@organizer", model.organizer);
-                command.Parameters.AddWithValue("@phone", model.phone);
+                command.Parameters.AddWithValue("@title", String.IsNullOrEmpty(model.title) ? "" : model.title);
+                command.Parameters.AddWithValue("@image", String.IsNullOrEmpty(model.image) ? "" : model.image);
+                command.Parameters.AddWithValue("@subTitle", String.IsNullOrEmpty(model.subTitle) ? "" : model.subTitle);
+                command.Parameters.AddWithValue("@date", String.IsNullOrEmpty(model.date) ? "" : model.date);
+                command.Parameters.AddWithValue("@hour", String.IsNullOrEmpty(model.hour) ? "" : model.hour);
+                command.Parameters.AddWithValue("@place", String.IsNullOrEmpty(model.place) ? "" : model.place);
+                command.Parameters.AddWithValue("@description", String.IsNullOrEmpty(model.description) ? "" : model.description);
+                command.Parameters.AddWithValue("@tags", String.IsNullOrEmpty(model.tags) ? "" : model.tags);
+                command.Parameters.AddWithValue("@youtube", String.IsNullOrEmpty(model.youtube) ? "" : model.youtube);
+                command.Parameters.AddWithValue("@organizer", String.IsNullOrEmpty(model.organizer) ? "" : model.organizer);
+                command.Parameters.AddWithValue("@phone", String.IsNullOrEmpty(model.phone) ? "" : model.phone);
                 command.Parameters.AddWithValue("@categoryId", model.categoryId);
 
                 try
@@ -160,17 +160,17 @@ namespace VoluntarAe.Controllers
 
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@id", model.id);
-                command.Parameters.AddWithValue("@title", model.title);
-                command.Parameters.AddWithValue("@image", model.image);
-                command.Parameters.AddWithValue("@subTitle", model.subTitle);
-                command.Parameters.AddWithValue("@date", model.date);
-                command.Parameters.AddWithValue("@hour", model.hour);
-                command.Parameters.AddWithValue("@place", model.place);
-                command.Parameters.AddWithValue("@description", model.description);
-                command.Parameters.AddWithValue("@tags", model.tags);
-                command.Parameters.AddWithValue("@youtube", model.youtube);
-                command.Parameters.AddWithValue("@organizer", model.organizer);
-                command.Parameters.AddWithValue("@phone", model.phone);
+                command.Parameters.AddWithValue("@title", String.IsNullOrEmpty(model.title) ? "" : model.title);
+                command.Parameters.AddWithValue("@image", String.IsNullOrEmpty(model.image) ? "" : model.image);
+                command.Parameters.AddWithValue("@subTitle", String.IsNullOrEmpty(model.subTitle) ? "" : model.subTitle);
+                command.Parameters.AddWithValue("@date", String.IsNullOrEmpty(model.date) ? "" : model.date);
+                command.Parameters.AddWithValue("@hour", String.IsNullOrEmpty(model.hour) ? "" : model.hour);
+                command.Parameters.AddWithValue("@place", String.IsNullOrEmpty(model.place) ? "" : model.place);
+                command.Parameters.AddWithValue("@description", String.IsNullOrEmpty(model.description) ? "" : model.description);
+                command.Parameters.AddWithValue("@tags", String.IsNullOrEmpty(model.tags) ? "" : model.tags);
+                command.Parameters.AddWithValue("@youtube", String.IsNullOrEmpty(model.youtube) ? "" : model.youtube);
+                command.Parameters.AddWithValue("@organizer", String.IsNullOrEmpty(model.organizer) ? "" : model.organizer);
+                command.Parameters.AddWithValue("@phone", String.IsNullOrEmpty(model.phone) ? "" : model.phone);
                 command.Parameters.AddWithValue("@categoryId", model.categoryId);
 
                 try
