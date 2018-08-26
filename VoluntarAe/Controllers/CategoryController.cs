@@ -67,6 +67,7 @@ namespace WebApplication.API.Controllers
                 var command = new SqlCommand(procedureName, connection);
 
                 command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@id", id);
 
                 try
                 {
@@ -101,7 +102,7 @@ namespace WebApplication.API.Controllers
                 var command = new SqlCommand(commandText, connection);
 
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@title", model.title);
+                command.Parameters.AddWithValue("@title", String.IsNullOrEmpty(model.title) ? "" : model.title);
 
                 try
                 {
@@ -124,7 +125,7 @@ namespace WebApplication.API.Controllers
 
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@id", model.id);
-                command.Parameters.AddWithValue("@title", model.title);
+                command.Parameters.AddWithValue("@title", String.IsNullOrEmpty(model.title) ? "" : model.title);
 
                 try
                 {
