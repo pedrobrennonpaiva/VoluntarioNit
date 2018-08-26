@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using VoluntarAe.Controllers;
 using WebApplication.API.Models;
 
 namespace WebApplication.API.Controllers
@@ -14,13 +15,16 @@ namespace WebApplication.API.Controllers
     public class CategoryController : ApiController
     {
         private readonly string connectionString;
+        List<DetailsModel> detailsModels;
+        List<DetailsModel> detailsListModels;
+        List<DetailsModel> listDet = null;
 
         public CategoryController()
         {
             connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         }
 
-        private IEnumerable<DetailsModel> GetDetails()
+        private List<DetailsModel> GetDetails()
         {
             var list = new List<DetailsModel>();
 
@@ -68,9 +72,11 @@ namespace WebApplication.API.Controllers
             }
             return list;
         }
-
+        
         public IEnumerable<CategoryModel> Get()
         {
+            detailsListModels = GetDetails();
+            listDet = new List<DetailsModel>();
             var list = new List<CategoryModel>();
 
             using (var connection = new SqlConnection(connectionString))
@@ -88,11 +94,23 @@ namespace WebApplication.API.Controllers
                     {
                         while (reader.Read())
                         {
+                            detailsModels = new List<DetailsModel>();
+                            int idDef = (int)reader["id"];
+
+                            foreach (var det in detailsListModels)
+                            {
+                                if (det.categoryId.Equals(idDef)){
+                                    detailsModels.Add(det);
+                                }
+                            }
+
                             var model = new CategoryModel
                             {
                                 id = (int)reader["id"],
-                                title = reader["title"].ToString()
+                                title = reader["title"].ToString(),
+                                detailsList = detailsModels != null ? detailsModels : listDet
                             };
+
                             list.Add(model);
                         }
                     }
@@ -108,6 +126,8 @@ namespace WebApplication.API.Controllers
         
         public CategoryModel Get(int id)
         {
+            detailsModels = new List<DetailsModel>();
+            listDet = new List<DetailsModel>();
             var model = new CategoryModel();
 
             using (var connection = new SqlConnection(connectionString))
@@ -126,11 +146,24 @@ namespace WebApplication.API.Controllers
                     {
                         while (reader.Read())
                         {
+                            int idDef = (int)reader["id"];
+
+                            foreach (var det in detailsModels)
+                            {
+                                if (det.categoryId.Equals(idDef))
+                                {
+                                    detailsModels.ToList().Add(det);
+                                }
+                            }
+
                             model = new CategoryModel
                             {
                                 id = (int)reader["id"],
-                                title = reader["title"].ToString()
+                                title = reader["title"].ToString(),
+                                detailsList = detailsModels != null ? detailsModels : listDet
                             };
+
+
                         }
                     }
 
