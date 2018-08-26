@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+        <ul class="navbar-nav">
+            <li class="nav-fill text-center">@Html.ActionLink("Categoria", "Index", "Category", new { area = "" }, new { @class = "navbar-brand" })</li>
+            <li class="nav-fill text-center">@Html.ActionLink("Detalhes", "Index", "Details", new { area = "" }, new { @class = "navbar-brand" })</li>
+        </ul>
+    </nav>
+</div>

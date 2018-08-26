@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<VoluntarAe.Web.Models.DetailsBindingViewModels>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Adicionar trabalho voluntário", "Create", null, new { @class = "btn btn-success btn-large" })
 </p>
 <table class="table">
     <tr>
@@ -37,9 +37,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.categoryId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.categoryName)
@@ -83,15 +80,12 @@
             @Html.DisplayFor(modelItem => item.phone)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.categoryId)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.categoryName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Detalhar", "Details", new { id=item.id }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.id })
         </td>
     </tr>
 }

@@ -106,7 +106,21 @@ namespace VoluntarAe.Web.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                model = await response.Content.ReadAsAsync<DetailsCreateEditViewModel>();
+                var modelDetails = await response.Content.ReadAsAsync<DetailsBindingViewModels>();
+
+                model = new DetailsCreateEditViewModel {
+                    title = modelDetails.title,
+                    subTitle = modelDetails.subTitle,
+                    image = modelDetails.image,
+                    hour = modelDetails.hour,
+                    place = modelDetails.place,
+                    date = modelDetails.date,
+                    description = modelDetails.description,
+                    organizer = modelDetails.organizer,
+                    phone = modelDetails.phone,
+                    youtube = modelDetails.youtube,
+                    tags = modelDetails.tags
+                };
             }
 
             response = await _clientHelper.GetAllCategories();
