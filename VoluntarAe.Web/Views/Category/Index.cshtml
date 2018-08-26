@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<VoluntarAe.Web.Models.CategoryBindingViewModels>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Adicionar categoria", "Create")
 </p>
 <table class="table">
     <tr>
@@ -17,9 +17,9 @@
             @Html.DisplayFor(modelItem => item.title)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Ver detalhes", "Details", new { id=item.id }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.id })
         </td>
     </tr>
 }
