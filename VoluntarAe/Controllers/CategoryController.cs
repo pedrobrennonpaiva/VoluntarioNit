@@ -19,7 +19,56 @@ namespace WebApplication.API.Controllers
         {
             connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         }
-        
+
+        private IEnumerable<DetailsModel> GetDetails()
+        {
+            var list = new List<DetailsModel>();
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var procedureName = "readDetails";
+                var command = new SqlCommand(procedureName, connection);
+
+                command.CommandType = CommandType.StoredProcedure;
+
+                try
+                {
+                    connection.Open();
+
+                    using (var reader = command.ExecuteReader(CommandBehavior.CloseConnection))
+                    {
+                        while (reader.Read())
+                        {
+                            var model = new DetailsModel
+                            {
+                                id = (int)reader["id"],
+                                title = reader["title"].ToString(),
+                                subTitle = reader["subtitle"].ToString(),
+                                image = reader["image"].ToString(),
+                                date = reader["date"].ToString(),
+                                hour = reader["hour"].ToString(),
+                                place = reader["place"].ToString(),
+                                description = reader["description"].ToString(),
+                                tags = reader["tags"].ToString(),
+                                youtube = reader["youtube"].ToString(),
+                                organizer = reader["organizer"].ToString(),
+                                phone = reader["phone"].ToString(),
+                                categoryId = (int)reader["categoryId"],
+                                categoryName = reader["categoryName"].ToString()
+                            };
+                            list.Add(model);
+                        }
+                    }
+
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return list;
+        }
+
         public IEnumerable<CategoryModel> Get()
         {
             var list = new List<CategoryModel>();

@@ -20,7 +20,6 @@ namespace VoluntarAe.Controllers
             connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         }
 
-        // GET: api/Feed
         public IEnumerable<DetailsModel> Get()
         {
             var list = new List<DetailsModel>();
