@@ -17,7 +17,7 @@ namespace VoluntarAe.Web.Helper
         {
             _client = new HttpClient
             {
-                BaseAddress = new Uri("http://localhost:53805/")
+                BaseAddress = new Uri("http://voluntaraeapi20180825020524.azurewebsites.net/")
             };
             _client.DefaultRequestHeaders.Accept.Clear();
 
