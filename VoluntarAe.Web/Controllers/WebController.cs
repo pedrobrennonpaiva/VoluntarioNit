@@ -19,11 +19,6 @@ namespace VoluntarAe.Web.Controllers
             return View();
         }
 
-        public PartialViewResult SobreVolutarae()
-        {
-            return PartialView();
-        }
-
         public ActionResult Departamento()
         {
             return View();
@@ -43,7 +38,5 @@ namespace VoluntarAe.Web.Controllers
         {
             return View();
         }
-
-
     }
 }
