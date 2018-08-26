@@ -405,8 +405,6 @@
     <Content Include="Views\Details\Edit.cshtml" />
     <Content Include="Views\Details\Delete.cshtml" />
     <Content Include="Views\Api\Index.cshtml" />
-    <Content Include="Views\Web\Departamento.cshtml" />
-    <Content Include="Views\Web\Voluntario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

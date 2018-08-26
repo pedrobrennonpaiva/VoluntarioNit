@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - VoltarAê</title>
+    <title>@ViewBag.Title - VoluntarAê</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -11,21 +11,16 @@
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            <a class="navbar-brand" href="index.html">VoluntarAê</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">@Html.ActionLink("Sobre", "Sobre", "Web", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li class="nav-item">@Html.ActionLink("Volutáriados", "Voluntariados", "Web", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li class="nav-item">@Html.ActionLink("Departamentos", "Departamento", "Web", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li class="nav-item">@Html.ActionLink("Ação volutária", "Voluntario", "Web", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li class="nav-item">@Html.ActionLink("Parceiros", "Parceiros", "Web", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li class="nav-item">@Html.ActionLink("Inscrição", "Index", "Api", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li class="nav-item">@Html.ActionLink("Contatos", "Contatos", "Web", new { area = "" }, new { @class = "navbar-brand" })</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
             </div>
          </div>      
     </nav>
